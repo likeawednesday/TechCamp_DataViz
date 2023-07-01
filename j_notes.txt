@@ -1,0 +1,5 @@
+Markdown table generator:
+https://www.tablesgenerator.com/markdown_tables
+
+How to write a CASE statement in Pandas:
+https://www.statology.org/case-statement-pandas/
