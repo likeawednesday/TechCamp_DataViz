@@ -3,7 +3,7 @@ echo -e "########################################\nWelcome to Data Analysis and 
 echo -e "\nInstalling software packages for Python, Git, and their dependencies..."
 sudo apt install python3 python3-pip git
 
-echo -e "\nInstalling JupyterLab, Matplotlib, NumPy, Pandas, Seaborn, and Squarify (Python libraries made for Data Analysis and Visualization)..."
+echo -e "\nInstalling Jupyter, JupyterLab, Matplotlib, NumPy, Pandas, Seaborn, and Squarify (Python apps and libraries made for Data Analysis and Visualization)..."
 pip install jupyter jupyterlab matplotlib numpy pandas seaborn squarify
 
 echo -e "\nAdding \"$HOME/.local/bin\" (location where Jupyter is installed) to PATH environment variable for $USER (current user)..."
@@ -16,8 +16,9 @@ echo -e "\nSetting execution permission on $HOME/TechCamp_DataViz/run_jupyterlab
 chmod +x ~/TechCamp_DataViz2/run_jupyterlab.sh
 
 echo -e "\n####################\nInstallation complete!\n####################\n" 
+
 read -p "Run JupyterLab now? (Y/N)" -n 1 -r
-if [[ ! $REPLY =~ ^[Yy]$ ]]
+if [[ $REPLY =~ ^[Yy]$ ]]
 then
 	~/TechCamp_DataViz2/run_jupyterlab.sh
 fi
