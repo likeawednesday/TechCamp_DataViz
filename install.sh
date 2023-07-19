@@ -69,7 +69,7 @@ printf "\n${White}${On_Blue}Adding ${On_Green}$HOME/.local/bin${On_Blue} (locati
 echo -e '\n# set PATH so it includes user private bin if it exists\nif [ -d "$HOME/.local/bin" ] ; then\n    PATH="$HOME/.local/bin:$PATH"\nfi' >> ~/.profile2
 
 printf "\n${White}${On_Blue}Cloning ${On_Green}TechCamp_DataViz${On_Blue} repository...\n  From: ${On_Green}https://GitHub.com/likeawednesday/TechCamp_DataViz${On_Blue}\n  To: ${On_Green}$HOME/TechCamp_DataViz${Reset}\n"
-git clone https://github.com/likeawednesday/TechCamp_DataViz.git ~/TechCamp_DataViz2
+git clone --depth 1 https://github.com/likeawednesday/TechCamp_DataViz.git ~/TechCamp_DataViz2
 
 printf "\n${White}${On_Blue}Setting execution permission on ${On_Green}$HOME/TechCamp_DataViz/run_jupyterlab.sh${On_Blue} script file...${Reset}\n"
 chmod +x ~/TechCamp_DataViz2/run_jupyterlab.sh
