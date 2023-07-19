@@ -1,2 +1,2 @@
 . ./.profile
-jupyter lab
+jupyter lab ~/TechCamp_DataViz
