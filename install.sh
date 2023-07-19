@@ -53,6 +53,8 @@ On_Purple='\033[45m'      # Purple
 On_Cyan='\033[46m'        # Cyan
 On_White='\033[47m'       # White
 
+spin='-\|/'
+
 clear
 
 printf "\n${White}${On_Purple}########################################################\nWelcome to Data Analysis and Visualization at Tech Camp!\n########################################################${Reset}\n"
@@ -60,16 +62,40 @@ printf "\n${Cyan}Press any key to continue...${Reset}\n"
 read -n 1 -s -r
 
 printf "\n${White}${On_Blue}Installing software packages for ${IPurple}${On_Blue}Python${White}${On_Blue}, ${IPurple}${On_Blue}Git${White}${On_Blue}, and their dependencies...${Reset}\n"
-sudo apt install python3 python3-pip git
+sudo apt -yqq install python3 python3-pip git &
+pid=$!
+i=0
+while kill -0 $pid 2>/dev/null
+do
+  i=$(( (i+1) %4 ))
+  printf "\r${spin:$i:1}"
+  sleep .1
+done
 
 printf "\n${White}${On_Blue}Installing ${IPurple}${On_Blue}Jupyter${White}${On_Blue}, ${IPurple}${On_Blue}JupyterLab${White}${On_Blue}, ${IPurple}${On_Blue}Matplotlib${White}${On_Blue}, ${IPurple}${On_Blue}NumPy${White}${On_Blue}, ${IPurple}${On_Blue}Pandas${White}${On_Blue}, ${IPurple}${On_Blue}Seaborn${White}${On_Blue}, and ${IPurple}${On_Blue}Squarify${White}${On_Blue} (Python apps and libraries made for Data Analysis and Visualization)...${Reset}\n"
-pip install jupyter jupyterlab matplotlib numpy pandas seaborn squarify
+pip install jupyter jupyterlab matplotlib numpy pandas seaborn squarify 2>&1 > /dev/null &
+pid=$!
+i=0
+while kill -0 $pid 2>/dev/null
+do
+  i=$(( (i+1) %4 ))
+  printf "\r${spin:$i:1}"
+  sleep .1
+done
 
 printf "\n${White}${On_Blue}Adding ${On_Green}$HOME/.local/bin${On_Blue} (location where Jupyter is installed) to PATH environment variable for ${On_Green}$USER${On_Blue} (current user)...${Reset}\n"
 echo -e '\n# set PATH so it includes user private bin if it exists\nif [ -d "$HOME/.local/bin" ] ; then\n    PATH="$HOME/.local/bin:$PATH"\nfi' >> ~/.profile2
 
 printf "\n${White}${On_Blue}Cloning ${On_Green}TechCamp_DataViz${On_Blue} repository...\n  From: ${On_Green}https://GitHub.com/likeawednesday/TechCamp_DataViz${On_Blue}\n  To: ${On_Green}$HOME/TechCamp_DataViz${Reset}\n"
-git clone --depth 1 https://github.com/likeawednesday/TechCamp_DataViz.git ~/TechCamp_DataViz2
+git clone --quiet --depth 1 https://github.com/likeawednesday/TechCamp_DataViz.git ~/TechCamp_DataViz2 2>&1 > /dev/null &
+pid=$!
+i=0
+while kill -0 $pid 2>/dev/null
+do
+  i=$(( (i+1) %4 ))
+  printf "\r${spin:$i:1}"
+  sleep .1
+done
 
 printf "\n${White}${On_Blue}Setting execution permission on ${On_Green}$HOME/TechCamp_DataViz/run_jupyterlab.sh${On_Blue} script file...${Reset}\n"
 chmod +x ~/TechCamp_DataViz2/run_jupyterlab.sh
