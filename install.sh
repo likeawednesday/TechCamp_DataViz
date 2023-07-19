@@ -13,6 +13,16 @@ Purple='\033[0;35m'       # Purple
 Cyan='\033[0;36m'         # Cyan
 White='\033[0;37m'        # White
 
+# High Intensity
+IBlack='\033[0;90m'       # Black
+IRed='\033[0;91m'         # Red
+IGreen='\033[0;92m'       # Green
+IYellow='\033[0;93m'      # Yellow
+IBlue='\033[0;94m'        # Blue
+IPurple='\033[0;95m'      # Purple
+ICyan='\033[0;96m'        # Cyan
+IWhite='\033[0;97m'       # White
+
 # Bold
 BBlack='\033[1;30m'       # Black
 BRed='\033[1;31m'         # Red
@@ -43,29 +53,31 @@ On_Purple='\033[45m'      # Purple
 On_Cyan='\033[46m'        # Cyan
 On_White='\033[47m'       # White
 
-printf "${Green}${On_Purple)\n########################################\nWelcome to Data Analysis and Visualization at Tech Camp!\n########################################\n${Reset}"
-printf "${Blue}\nPress any key to continue...\n${Reset}"
+clear
+
+printf "\n${White}${On_Purple}########################################################\nWelcome to Data Analysis and Visualization at Tech Camp!\n########################################################${Reset}\n"
+printf "\n${Cyan}Press any key to continue...${Reset}\n"
 read -n 1 -s -r
 
-printf "${Blue}\nInstalling software packages for Python, Git, and their dependencies...${Reset}"
+printf "\n${White}${On_Blue}Installing software packages for ${IPurple}${On_Blue}Python${White}${On_Blue}, ${IPurple}${On_Blue}Git${White}${On_Blue}, and their dependencies...${Reset}\n"
 sudo apt install python3 python3-pip git
 
-printf "${Blue}\nInstalling Jupyter, JupyterLab, Matplotlib, NumPy, Pandas, Seaborn, and Squarify (Python apps and libraries made for Data Analysis and Visualization)...${Reset}"
+printf "\n${White}${On_Blue}Installing ${IPurple}${On_Blue}Jupyter${White}${On_Blue}, ${IPurple}${On_Blue}JupyterLab${White}${On_Blue}, ${IPurple}${On_Blue}Matplotlib${White}${On_Blue}, ${IPurple}${On_Blue}NumPy${White}${On_Blue}, ${IPurple}${On_Blue}Pandas${White}${On_Blue}, ${IPurple}${On_Blue}Seaborn${White}${On_Blue}, and ${IPurple}${On_Blue}Squarify${White}${On_Blue} (Python apps and libraries made for Data Analysis and Visualization)...${Reset}\n"
 pip install jupyter jupyterlab matplotlib numpy pandas seaborn squarify
 
-printf "${Blue}\nAdding ${Purple}$HOME/.local/bin${Blue} (location where Jupyter is installed) to PATH environment variable for ${Purple}$USER${Blue} (current user)...${Reset}"
+printf "\n${White}${On_Blue}Adding ${On_Green}$HOME/.local/bin${On_Blue} (location where Jupyter is installed) to PATH environment variable for ${On_Green}$USER${On_Blue} (current user)...${Reset}\n"
 echo -e '\n# set PATH so it includes user private bin if it exists\nif [ -d "$HOME/.local/bin" ] ; then\n    PATH="$HOME/.local/bin:$PATH"\nfi' >> ~/.profile2
 
-printf "${Blue}\nCloning ${Green}TechCamp_DataViz${Blue} repository...\n  From: ${Green}https://GitHub.com/likeawednesday/TechCamp_DataViz${Blue}\n  To: ${Purple}$HOME/TechCamp_DataViz${Reset}"
+printf "\n${White}${On_Blue}Cloning ${On_Green}TechCamp_DataViz${On_Blue} repository...\n  From: ${On_Green}https://GitHub.com/likeawednesday/TechCamp_DataViz${On_Blue}\n  To: ${On_Green}$HOME/TechCamp_DataViz${Reset}\n"
 git clone https://github.com/likeawednesday/TechCamp_DataViz.git ~/TechCamp_DataViz2
 
-printf "${Blue}\nSetting execution permission on ${Purple}$HOME/TechCamp_DataViz/run_jupyterlab.sh${Blue} script file...${Reset}"
+printf "\n${White}${On_Blue}Setting execution permission on ${On_Green}$HOME/TechCamp_DataViz/run_jupyterlab.sh${On_Blue} script file...${Reset}\n"
 chmod +x ~/TechCamp_DataViz2/run_jupyterlab.sh
 
-printf "${Green}${On_Purple}\n#######################\nInstallation complete!\n#######################\n${Reset}"
+printf "\n${White}${On_Purple}######################\nInstallation complete!\n######################${Reset}\n"
 
-printf "${Cyan}Run JupyterLab now? (Y/N)${Reset}"
-read -n 1 -r
+printf "\n${Cyan}---------- Run JupyterLab now? (Y/N) ----------${Reset}\n"
+read -n 1 -r;echo
 if [[ $REPLY =~ ^[Yy]$ ]]
 then
 	~/TechCamp_DataViz2/run_jupyterlab.sh
