@@ -85,7 +85,7 @@ printf "\n${White}${On_Blue}Adding ${On_Green}$HOME/.local/bin${On_Blue} (locati
 echo -e '\n# set PATH so it includes user private bin if it exists\nif [ -d "$HOME/.local/bin" ] ; then\n    PATH="$HOME/.local/bin:$PATH"\nfi' >>~/.profile2
 
 printf "\n${White}${On_Blue}Cloning ${On_Green}TechCamp_DataViz${On_Blue} repository...\n  From: ${On_Green}https://GitHub.com/likeawednesday/TechCamp_DataViz${On_Blue}\n  To: ${On_Green}$HOME/TechCamp_DataViz${Reset}\n"
-git clone --quiet --depth 1 https://github.com/likeawednesday/TechCamp_DataViz.git ~/TechCamp_DataViz2 2>&1 >/dev/null &
+git clone --quiet --depth 1 https://github.com/likeawednesday/TechCamp_DataViz.git ~/TechCamp_DataViz 2>&1 >/dev/null &
 pid=$!
 i=0
 while kill -0 $pid 2>/dev/null; do
@@ -94,8 +94,8 @@ while kill -0 $pid 2>/dev/null; do
 	sleep .1
 done
 
-printf "\n${White}${On_Blue}Setting execution permission on ${On_Green}$HOME/TechCamp_DataViz/run_jupyterlab.sh${On_Blue} script file...${Reset}\n"
-chmod +x ~/TechCamp_DataViz2/run_jupyterlab.sh
+printf "\n${White}${On_Blue}Setting execution permission on ${On_Green}$HOME/TechCamp_DataViz/lab/run_jupyterlab.sh${On_Blue} script file...${Reset}\n"
+chmod +x ~/TechCamp_DataViz/lab/run_jupyterlab.sh
 
 printf "\n${White}${On_Purple}######################\nInstallation complete!\n######################${Reset}\n"
 
@@ -103,5 +103,5 @@ printf "\n${Cyan}---------- Run JupyterLab now? (Y/N) ----------${Reset}\n"
 read -n 1 -r
 echo
 if [[ $REPLY =~ ^[Yy]$ ]]; then
-	~/TechCamp_DataViz2/run_jupyterlab.sh
+	~/TechCamp_DataViz/lab/run_jupyterlab.sh
 fi
