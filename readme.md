@@ -1,4 +1,4 @@
-# Data Visualization with Python
+# Data Analysis & Visualization with Python
 
 ## Setup
 - [How to Setup Linux on Your Chromebook](resources/How_To_Setup_Linux_On_Chromebook.pdf)
