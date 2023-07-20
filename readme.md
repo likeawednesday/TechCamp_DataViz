@@ -1,4 +1,4 @@
-# Data Visualization with Python - Instructor Materials
+# Data Analysis & Visualization with Python - Instructor Materials
 
 ## Setup
 - [Setup Linux on ChromeOS](resources/How_To_Setup_Linux_On_Chromebook.pdf)
